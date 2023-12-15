@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>CRUDS</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="main_data">
+            <input class="title" id="title" type="text" placeholder="title">
+            <input class="count" id="count" type="number" placeholder="count" value="1">
+            <input class="price" id="price" onkeyup="total_data()" type="number" placeholder="price" required>
+            <input class="discount" id="discount" onkeyup="total_data()" type="number" placeholder="dicount">
+            <span id="total"></span>
+            <button id="creat_prod">CREAT</button>
+            <input id="search" type="text" placeholder="Search By Title" onkeyup="searchData(this.value)">
+        </div>
+
+        <div id="table_data">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>dicount</th>
+                    <th>total</th>
+                    <th id="update_btn">Update</th>
+                    <th id="delet_btn">Delet</th>
+                </tr>
+                <tbody id="tbody">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
