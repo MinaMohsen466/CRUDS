@@ -48,7 +48,7 @@ function claer_data(){
 //add_data_function
 creat_prod.onclick = function(){    
     let newProduct = {
-        title:title.value,
+        title:title.value.toLowerCase(),
         price:price.value,
         discount:discount.value,
         total: result,
@@ -120,7 +120,7 @@ function update(i){
 function searchData(value){
     tbody.innerHTML = "";
     for(let i=0; i<arr_data.length; i++){
-        if(arr_data[i].title.includes(value)){
+        if(arr_data[i].title.includes(value.toLowerCase())){
             tableData = 
             `
             <tr>

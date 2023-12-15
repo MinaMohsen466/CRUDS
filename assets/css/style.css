@@ -5,7 +5,7 @@
     box-sizing: border-box;   
 }
 .container{
-    width: 95%;
+    width: 80%;
     margin: 20px auto;
     background-color: rgb(0, 0, 0);
     color: white;
@@ -68,17 +68,20 @@ div#table_data table tr button:hover{
     cursor: pointer;
 }
 @media (max-width:600px){
+    .container{
+        width: 95%;
+    }
     div#table_data table{
         width: 40%;
         text-align: center;
-        }
-        div#table_data table tr th, tr td{
+    }
+    div#table_data table tr th, tr td{
             font-size: 15px;
-        }
-        div#table_data table tr button{
+    }
+    div#table_data table tr button{
             font-size: 13px;
-        }
-        .main_data .price, .discount{
+    }
+    .main_data .price, .discount{
             width: 33%;
-        }
+    }
 }
