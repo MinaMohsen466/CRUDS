@@ -11,6 +11,7 @@ let search = document.getElementById("search");
 let mood = "creat";
 let tem;
 
+
 let arr_data;
 if(localStorage.product != null){
     arr_data = JSON.parse(localStorage.product);
@@ -31,6 +32,11 @@ function total_data(){
             alert("less than 0");
         }
     }     
+}
+
+//onkeyup_on_countBtn
+count.onkeyup = function(){
+    creat_prod.innerHTML = `Creat (${count.value})`;
 }
 
 
@@ -54,27 +60,28 @@ creat_prod.onclick = function(){
         total: result,
     };
     if(mood === "creat"){
-        for(let y=0; y<count.value; y++){
+        for(let i=0; i<count.value; i++){
             arr_data.push(newProduct);
             localStorage.setItem("product", JSON.stringify(arr_data));
             tbody.innerHTML = "";
-            showData();
+            creat_prod.innerHTML = `Creat`;
         }
         claer_data();
-        }else{
-            arr_data[tem].title = title.value; 
-            arr_data[tem].price = price.value; 
-            arr_data[tem].discount = discount.value;
-            arr_data[tem].total = result;
-            count.style.display ="block";
-            creat_prod.innerHTML ="creat";
-            localStorage.product = JSON.stringify(arr_data);
-            tbody.innerHTML = "";
-            showData()
-            claer_data();
-            mood = "creat";
-        }
+    }else{
+        arr_data[tem].title = title.value.toLowerCase(); 
+        arr_data[tem].price = price.value; 
+        arr_data[tem].discount = discount.value;
+        arr_data[tem].total = result;
+        count.style.display ="block";
+        creat_prod.innerHTML ="creat";
+        localStorage.product = JSON.stringify(arr_data);
+        tbody.innerHTML = "";
+        mood = "creat";
+        claer_data();
+    }
+    showData();
 }
+
 
 //show_data_function
 function showData(){
@@ -94,7 +101,7 @@ function showData(){
         tbody.innerHTML += tableData;
     }
 }
-showData()
+showData();
 
 //deletItem_function
 function deletItem(i){
@@ -103,6 +110,7 @@ function deletItem(i){
     tbody.innerHTML = "";
     showData();
 }
+
 
 //update_finction
 function update(i){
@@ -115,6 +123,7 @@ function update(i){
     creat_prod.innerHTML ="update";
     total_data()
 }
+
 
 //search_function
 function searchData(value){
@@ -137,3 +146,4 @@ function searchData(value){
             }
     }
 }
+console.log(arr_data);
